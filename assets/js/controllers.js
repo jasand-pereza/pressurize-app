@@ -46,18 +46,21 @@
 
       $scope.init = function() {
         var checkContents = setInterval(function() {
-          if ($(".chart").length > 0) { // Check if element has been found
+          // todo: figure out if there is a callback after loading a view
+          // dom for the loaded view isn't technically ready so we're doing this nonsense
+          if ($(".chart").length > 0) {
             render_bar_charts();
-            var row_editor = new RowEditor($('.grid-rows'));
-            row_editor.init();
-            row_editor.onSubmit(function(e) {
-              sharedProperties.setProjects({
-                
+            $('.grid-rows').each(function(){
+              var row_editor = new RowEditor($(this));
+              row_editor.init();
+              row_editor.onSubmit($(this), function(e) {
+                sharedProperties.setProjects({
+                });
               });
             });
             clearInterval(checkContents);
           }
-        }, 10);
+        }, 100);
       };
   }]);
 
@@ -84,41 +87,3 @@
   }]);
 
 })(jQuery, angular, window);
-
-
-RowEditor = (function($) {
-  var RowEditor = function ($object) {
-    this.$object = $object;
-  };
-  RowEditor.prototype.init = function() {
-    this.template = this.getTemplate(function(template) {
-      this.addRows(1, template);
-      var $obj = this.$object.find('.row-editor');
-      this.addEvents($obj);
-    }.bind(this));
-  };
-
-  RowEditor.prototype.addRows = function(n, template) {
-    for(var i = 0; i < n; i++) {
-      this.$object.append(template);
-    }
-  };
-
-  RowEditor.prototype.onSubmit = function($obj, callback) {
-    $obj.on('submit', function(e) {
-      e.preventDefault();
-      callback(e);
-    });
-  };
-
-  RowEditor.prototype.getTemplate = function(callback) {
-    return (function() {
-      $.get('/partials/projects-row-editor.html')
-        .done(function(d) {
-          callback(d);
-        });
-    })();
-  };
-
-  return RowEditor;
-})(jQuery);

@@ -4565,4 +4565,13 @@ label {
 
 .row-editor input {
   display: inline-block;
-  width: 30%; }
+  width: 30%;
+  border: none;
+  border-bottom: solid thin #CCC;
+  box-shadow: none; }
+
+.row-editor input[type="submit"] {
+  background-color: transparent;
+  font-size: 17px;
+  padding: 9px;
+  font-weight: lighter; }

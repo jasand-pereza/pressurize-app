@@ -17,7 +17,18 @@
  label {
   margin: 15px 15px 15px 0;
  }
-.row-editor input {
-  display: inline-block;
-  width: 30%;
+.row-editor {
+  input {
+    display: inline-block;
+    width: 30%;
+    border: none;
+    border-bottom: solid thin #CCC;
+    box-shadow: none;
+  }
+  input[type="submit"] {
+    background-color: transparent;
+    font-size: 17px;
+    padding: 9px;
+    font-weight: lighter;
+  }
 }

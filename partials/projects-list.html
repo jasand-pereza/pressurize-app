@@ -2,7 +2,7 @@
   <div class="medium-12 columns">
     <h2>Projects</h2>
     <ul class="medium-block-grid-3">
-      <li ng-repeat="project in projects" data-id="{{$index}}">
+      <li ng-repeat="project in projects" data-id="{{$index}}" ng-if="project.name">
         <h3>{{project.name}}</h3>
         <b>{{project.description}}</b><br>
         <b>Total Dev hours: </b>{{project.dev_hours}}</br>

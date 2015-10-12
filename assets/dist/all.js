@@ -104,18 +104,21 @@ function getGreenToRed(percent){
 
       $scope.init = function() {
         var checkContents = setInterval(function() {
-          if ($(".chart").length > 0) { // Check if element has been found
+          // todo: figure out if there is a callback after loading a view
+          // dom for the loaded view isn't technically ready so we're doing this nonsense
+          if ($(".chart").length > 0) {
             render_bar_charts();
-            var row_editor = new RowEditor($('.grid-rows'));
-            row_editor.init();
-            row_editor.onSubmit(function(e) {
-              sharedProperties.setProjects({
-                
+            $('.grid-rows').each(function(){
+              var row_editor = new RowEditor($(this));
+              row_editor.init();
+              row_editor.onSubmit($(this), function(e) {
+                sharedProperties.setProjects({
+                });
               });
             });
             clearInterval(checkContents);
           }
-        }, 10);
+        }, 100);
       };
   }]);
 
@@ -143,8 +146,9 @@ function getGreenToRed(percent){
 
 })(jQuery, angular, window);
 
+RowEditor = (function($, window) {
+  'use strict';
 
-RowEditor = (function($) {
   var RowEditor = function ($object) {
     this.$object = $object;
   };
@@ -162,6 +166,10 @@ RowEditor = (function($) {
     }
   };
 
+  RowEditor.prototype.addEvents = function() {
+    
+  };
+
   RowEditor.prototype.onSubmit = function($obj, callback) {
     $obj.on('submit', function(e) {
       e.preventDefault();
@@ -177,6 +185,26 @@ RowEditor = (function($) {
         });
     })();
   };
-
   return RowEditor;
-})(jQuery);
+})(jQuery, window);
+TimeRecord = (function($, window) {
+  'use strict';
+
+  var TimeRecord = function ($object, data) {
+    this.$object = $object;
+
+    if(typeof data.hours !== 'number') return;
+    this.hours = data.hours;
+
+    if(typeof data.comments) {
+      this.comments = $.trim(data.comments);
+    }
+  };
+
+  TimeRecord.prototype = {
+    hours : 0,
+    comments: ''
+  };
+
+  return TimeRecord;
+})(jQuery, window);
