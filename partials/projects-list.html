@@ -1,8 +1,8 @@
-<div class="row controller-projects" ng-controller="ProjectsListController">
+<div class="row controller-projects" ng-controller="ProjectsListController" ng-init="init()">
   <div class="medium-12 columns">
     <h2>Projects</h2>
     <ul class="medium-block-grid-3">
-      <li ng-repeat="project in projects">
+      <li ng-repeat="project in projects" data-id="{{$index}}">
         <h3>{{project.name}}</h3>
         <b>{{project.description}}</b><br>
         <b>Total Dev hours: </b>{{project.dev_hours}}</br>
@@ -15,6 +15,7 @@
           data-data-hours-used="{{project.total_used}}"
           data-bar-width="50">
         </svg>
+        <div class="grid-rows"></div>
       </li>
     </ul>
   </div>

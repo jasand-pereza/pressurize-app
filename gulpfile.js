@@ -20,7 +20,7 @@ gulp.task('lint', function() {
 gulp.task('sass', function() {
   return gulp.src('assets/scss/*.scss')
   .pipe(sass())
-  .pipe(gulp.dest('css'));
+  .pipe(gulp.dest('assets/css'));
 });
 
 // Concatenate & Minify JS
@@ -34,7 +34,7 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('coffee', function() {
-  gulp.src('./asses/js/src/coffee/*.coffee')
+  gulp.src('./assests/js/src/coffee/*.coffee')
   .pipe(coffee({bare: true}))
   .pipe(gulp.dest('./assets/js/compiled/'));
 });
