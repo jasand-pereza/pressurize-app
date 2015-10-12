@@ -1,0 +1,19 @@
+@import 'node_modules/foundation/scss/foundation.scss';
+
+.chart {
+   height: 150px;
+   width: 300px;
+   border-bottom: 1px solid #ccc;
+   display: block;
+   margin-top: 20px;
+ }
+ .bar-hours {
+   fill: #423F3F;
+ }
+ .error {
+  color: #FF0000;
+  margin: 20px;
+ }
+ label {
+  margin: 15px 15px 15px 0;
+ }
