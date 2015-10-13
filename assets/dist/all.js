@@ -84,8 +84,7 @@ var App = (function($, window) {
           redirectTo: '/projects/'
         });
     }]);
-
-  
+ 
   pressurizeApp.service('sharedProperties', function () {
     var projects = (localStorage.getItem('projects')!==null) ? JSON.parse(localStorage.getItem('projects')) : [];
     var time_records = (localStorage.getItem('time_records')!==null) ? JSON.parse(localStorage.getItem('time_records')) : [];
@@ -193,7 +192,6 @@ var App = (function($, window) {
     }
   ]);
 
-
   pressurizeApp.controller('ProjectCreateController', ["$scope", "$http", "sharedProperties",
     function ($scope, $http, sharedProperties) {
 
@@ -215,7 +213,6 @@ var App = (function($, window) {
       };
     }
   ]);
-
 })(jQuery, angular, App, window);
 
 RowEditor = (function($, window) {

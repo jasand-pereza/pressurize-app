@@ -19,8 +19,7 @@
           redirectTo: '/projects/'
         });
     }]);
-
-  
+ 
   pressurizeApp.service('sharedProperties', function () {
     var projects = (localStorage.getItem('projects')!==null) ? JSON.parse(localStorage.getItem('projects')) : [];
     var time_records = (localStorage.getItem('time_records')!==null) ? JSON.parse(localStorage.getItem('time_records')) : [];
@@ -128,7 +127,6 @@
     }
   ]);
 
-
   pressurizeApp.controller('ProjectCreateController', ["$scope", "$http", "sharedProperties",
     function ($scope, $http, sharedProperties) {
 
@@ -150,5 +148,4 @@
       };
     }
   ]);
-
 })(jQuery, angular, App, window);
