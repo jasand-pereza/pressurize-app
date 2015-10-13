@@ -16,6 +16,9 @@ var App = (function($, window) {
       $svg.contents().remove();
       var data_hours = [parseInt($svg.data('dataHours'))];
       var data_hours_used = [parseInt($svg.data('dataHoursUsed'))];
+      if(isNaN(data_hours_used)) {
+        data_hours_used = 0.1;
+      }
 
       var barWidth = parseFloat($svg.data('bar-width')) || 15;
       var barSpace = parseFloat($svg.data('bar-space')) || 0.5;

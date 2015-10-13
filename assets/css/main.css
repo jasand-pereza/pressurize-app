@@ -4550,6 +4550,9 @@ body, h1, h2, h3, h4, h5, h6, strong, b, em, i, span, a {
   font-family: 'Lato', sans-serif;
   color: #747D82; }
 
+.row {
+  max-width: 1200px; }
+
 .chart {
   height: 150px;
   width: 100px;
@@ -4559,7 +4562,8 @@ body, h1, h2, h3, h4, h5, h6, strong, b, em, i, span, a {
 .project {
   background: rgba(204, 201, 201, 0.14);
   border: solid 5px #FFF;
-  min-height: 650px; }
+  min-height: 650px;
+  max-width: 380px; }
   .project .inner {
     padding: 20px; }
 

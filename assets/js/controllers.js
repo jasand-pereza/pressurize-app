@@ -171,6 +171,9 @@
           alert('please fill out all fields correctly');
         }
 
+        $scope.project.total_used = (typeof $scope.project.total_used  != 'undefined') ? $scope.project.total_used : 0;
+
+
         sharedProperties.setProjects({
           name: $scope.project.name,
           project_number: uuid.new(),
