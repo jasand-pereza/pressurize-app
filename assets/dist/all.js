@@ -13,6 +13,7 @@ var App = (function($, window) {
 
     $('.chart').each(function (i, svg) {
       var $svg = $(svg);
+      $svg.contents().remove();
       var data_hours = [parseInt($svg.data('dataHours'))];
       var data_hours_used = [parseInt($svg.data('dataHoursUsed'))];
 
@@ -188,6 +189,7 @@ var App = (function($, window) {
           comments: time_record.comments,
           project_number: time_record.project_number
         });
+        window.location = '/#/projects';
       };
     }
   ]);

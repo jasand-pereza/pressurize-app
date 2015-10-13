@@ -123,6 +123,7 @@
           comments: time_record.comments,
           project_number: time_record.project_number
         });
+        window.location = '/#/projects';
       };
     }
   ]);
