@@ -5,7 +5,7 @@
       <li class="project" ng-repeat="project in projects" ng-if="project.name">
         <div class="inner">
           <h3>{{project.name}}</h3>
-          <b>{{project.description}}</b><br>
+          <p>{{project.description}}</p><br>
           <b>Total Dev hours: </b>{{project.dev_hours}}</br>
           <b>Hours used: </b>{{project.total_used}}</br>
           <b>Hours left: </b>{{project.dev_hours - project.total_used}}</br>
@@ -41,7 +41,7 @@
                   value="add">
               </form>
               <div class="time-log">
-                <div class="row" ng-repeat="time_record in getProjectAssoicatedTimeRecords(project.project_number)">
+                <div class="row time-record-entry" ng-repeat="time_record in getProjectAssoicatedTimeRecords(project.project_number)">
                   <div class="small-6 columns">{{time_record.hours}}</div>
                   <div class="small-6 columns">{{time_record.comments}}</div>
                </div>

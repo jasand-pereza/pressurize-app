@@ -5,14 +5,14 @@ body, h1, h2, h3, h4, h5, h6, strong, b, em, i, span, a {
 }
 .chart {
    height: 150px;
-   width: 300px;
+   width: 100px;
    display: block;
    margin-top: 20px;
  }
  .project {
     background: rgba(204,201,201,0.14);
     border: solid 5px #FFF;
-    min-height: 700px;
+    min-height: 650px;
     .inner {
       padding: 20px;
     }
@@ -44,7 +44,6 @@ body, h1, h2, h3, h4, h5, h6, strong, b, em, i, span, a {
     font-weight: lighter;
   }
 }
-
 .time-log {
   li {
     display: block;
@@ -57,4 +56,7 @@ body, h1, h2, h3, h4, h5, h6, strong, b, em, i, span, a {
   span {
     font-weight: lighter;
   }
+}
+.time-record-entry {
+  border-bottom: dotted thin #CCC;
 }
