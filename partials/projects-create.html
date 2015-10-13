@@ -1,48 +1,50 @@
-<h2>Create a project</h2>
-<form
-  name="project_create_form"
-  novalidate
-  ng-submit="submitForm(project_create_form.$valid)">
+<div ng-controlller="ProjectCreateController" ng-init="init()">
+  <h2>Create a project</h2>
+  <form
+    name="project_create_form"
+    novalidate
+    ng-submit="submitForm(project_create_form.$valid)">
 
-  <label for="project-name">
-    Project Name
-    <span class="error" ng-show="project_create_form.name.$error.required">Required!</span><br>
-  </label>
-  <input
-    required
-    ng-model="project.name"
-    type="text"
-    name="name"
-    id="project-name">
+    <label for="project-name">
+      Project Name
+      <span class="error" ng-show="project_create_form.name.$error.required">Required!</span><br>
+    </label>
+    <input
+      required
+      ng-model="project.name"
+      type="text"
+      name="name"
+      id="project-name">
 
-  <label for="project-description">
-    Project Description
-    <span class="error" ng-show="project_create_form.description.$error.required">Required!</span><br>
-  </label>
-  <textarea
-    required
-    ng-model="project.description"
-    name="description"
-    id="project-description">
-  </textarea>
+    <label for="project-description">
+      Project Description
+      <span class="error" ng-show="project_create_form.description.$error.required">Required!</span><br>
+    </label>
+    <textarea
+      required
+      ng-model="project.description"
+      name="description"
+      id="project-description">
+    </textarea>
 
-  <label for="project-total-hours">
-    Total Development Hours
-    <span class="error" ng-show="project_create_form.dev_hours.$error.required">Required!</span><br>
-  </label>
-  <input
-    required
-    ng-model="project.dev_hours"
-    type="text"
-    name="dev_hours"
-    id="project-total-hours">
-  
-  <input
-    ng-model="project.total_used"
-    type="text"
-    name="total_used"
-    value="0"
-    placeholder="if any hours have already been used enter it here or it will zero">
+    <label for="project-total-hours">
+      Total Development Hours
+      <span class="error" ng-show="project_create_form.dev_hours.$error.required">Required!</span><br>
+    </label>
+    <input
+      required
+      ng-model="project.dev_hours"
+      type="text"
+      name="dev_hours"
+      id="project-total-hours">
+    
+    <input
+      ng-model="project.total_used"
+      type="text"
+      name="total_used"
+      value="0"
+      placeholder="if any hours have already been used enter it here or it will zero">
 
-  <input type="submit" value="Add Project">
-</form>
+    <input type="submit" value="Add Project">
+  </form>
+</div>

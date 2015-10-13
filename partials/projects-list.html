@@ -1,8 +1,8 @@
-<div class="row controller-projects" ng-controller="ProjectsListController" ng-init="init()">
+<div class="row controller-projects" ng-controller="ProjectsListController" ng-init="init($this)">
   <div class="medium-12 columns">
     <h2>Projects</h2>
     <ul class="medium-block-grid-3">
-      <li ng-repeat="project in projects" data-id="{{$index}}" ng-if="project.name">
+      <li class="project" ng-repeat="project in projects" data-id="{{project.$$hashKey}}" ng-if="project.name">
         <h3>{{project.name}}</h3>
         <b>{{project.description}}</b><br>
         <b>Total Dev hours: </b>{{project.dev_hours}}</br>
@@ -15,7 +15,30 @@
           data-data-hours-used="{{project.total_used}}"
           data-bar-width="50">
         </svg>
-        <div class="grid-rows"></div>
+        <div class="grid-rows">
+          <div ng-controller="TimeRecordsController" class="row-editor" ng-init="init($index); time_record.project_number = project.$$hashKey">
+            <form
+              name="time_record_form"
+              novalidate
+              ng-submit="timeRecordSubmit(time_record_form.$valid)">
+              <input
+                type="text"
+                name="hours"
+                placeholder="add hours" ng-model="time_record.hours">
+
+              <input
+                type="text"
+                name="comment"
+                placeholder="add comment"
+                ng-model="time_record.comments">
+
+              <input
+                type="submit"
+                class="button secondary"
+                value="add">
+            </form>
+          </div>
+        </div>
       </li>
     </ul>
   </div>

@@ -1,11 +1,12 @@
 TimeRecord = (function($, window) {
   'use strict';
 
-  var TimeRecord = function ($object, data) {
-    this.$object = $object;
+  var TimeRecord = function (data) {
 
-    if(typeof data.hours !== 'number') return;
+    if(typeof data.hours == 'undefined') return;
+    data.hours = parseInt(data.hours);
     this.hours = data.hours;
+    this.project_number = data.project_number;
 
     if(typeof data.comments) {
       this.comments = $.trim(data.comments);
@@ -14,7 +15,8 @@ TimeRecord = (function($, window) {
 
   TimeRecord.prototype = {
     hours : 0,
-    comments: ''
+    comments: '',
+    project_number: null
   };
 
   return TimeRecord;
