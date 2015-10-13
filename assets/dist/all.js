@@ -173,7 +173,7 @@ var App = (function($, window) {
           sharedProperties.getProjects(),
           { '$$hashKey': $scope.time_record.project_number }
         );
-        
+        // todo: refactor/extract all the below
         project.total_used = parseInt(project.total_used) + parseInt(time_record.hours);
         var all_projects = sharedProperties.getProjects();
        
