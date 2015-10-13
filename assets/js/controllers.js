@@ -1,4 +1,4 @@
-(function($, angular, window) {
+(function($, angular, App, window) {
   'use strict';
   
   var pressurizeApp = angular.module('pressurizeApp', ['ngRoute']);
@@ -87,7 +87,7 @@
           // todo: figure out if there is a callback after loading a view
           // the dom for the loaded view isn't technically ready so we're doing this nonsense
           if ($(".chart").length > 0) {
-            render_bar_charts();
+            App.renderBarCharts();
             clearInterval(checkContents);
           }
         }, 100);
@@ -151,4 +151,4 @@
     }
   ]);
 
-})(jQuery, angular, window);
+})(jQuery, angular, App, window);
