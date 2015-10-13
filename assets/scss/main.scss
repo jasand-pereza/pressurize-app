@@ -1,11 +1,21 @@
 @import 'node_modules/foundation/scss/foundation.scss';
-
+body, h1, h2, h3, h4, h5, h6, strong, b, em, i, span, a {
+  font-family: 'Lato', sans-serif;
+  color: #747D82;
+}
 .chart {
    height: 150px;
    width: 300px;
-   border-bottom: 1px solid #ccc;
    display: block;
    margin-top: 20px;
+ }
+ .project {
+    background: rgba(204,201,201,0.14);
+    border: solid 5px #FFF;
+    min-height: 700px;
+    .inner {
+      padding: 20px;
+    }
  }
  .bar-hours {
    fill: #423F3F;
@@ -18,6 +28,8 @@
   margin: 15px 15px 15px 0;
  }
 .row-editor {
+  margin-top: 20px;
+  width: 90%;
   input {
     display: inline-block;
     width: 30%;
@@ -29,6 +41,20 @@
     background-color: transparent;
     font-size: 17px;
     padding: 9px;
+    font-weight: lighter;
+  }
+}
+
+.time-log {
+  li {
+    display: block;
+  }
+  ul {
+    clear: both;
+    display: block;
+    width: 100%;
+  }
+  span {
     font-weight: lighter;
   }
 }

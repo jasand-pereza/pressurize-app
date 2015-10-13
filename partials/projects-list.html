@@ -2,41 +2,50 @@
   <div class="medium-12 columns">
     <h2>Projects</h2>
     <ul class="medium-block-grid-3">
-      <li class="project" ng-repeat="project in projects" data-id="{{project.$$hashKey}}" ng-if="project.name">
-        <h3>{{project.name}}</h3>
-        <b>{{project.description}}</b><br>
-        <b>Total Dev hours: </b>{{project.dev_hours}}</br>
-        <b>Hours used: </b>{{project.total_used}}</br>
-        <b>Hours left: </b>{{project.dev_hours - project.total_used}}</br>
-        <svg
-          class="chart"
-          data-bar-chart
-          data-data-hours="{{project.dev_hours}}"
-          data-data-hours-used="{{project.total_used}}"
-          data-bar-width="50">
-        </svg>
-        <div class="grid-rows">
-          <div ng-controller="TimeRecordsController" class="row-editor" ng-init="init($index); time_record.project_number = project.$$hashKey">
-            <form
-              name="time_record_form"
-              novalidate
-              ng-submit="timeRecordSubmit(time_record_form.$valid)">
-              <input
-                type="text"
-                name="hours"
-                placeholder="add hours" ng-model="time_record.hours">
+      <li class="project" ng-repeat="project in projects" ng-if="project.name">
+        <div class="inner">
+          <h3>{{project.name}}</h3>
+          <b>{{project.description}}</b><br>
+          <b>Total Dev hours: </b>{{project.dev_hours}}</br>
+          <b>Hours used: </b>{{project.total_used}}</br>
+          <b>Hours left: </b>{{project.dev_hours - project.total_used}}</br>
+          <svg
+            class="chart"
+            data-bar-chart
+            data-data-hours="{{project.dev_hours}}"
+            data-data-hours-used="{{project.total_used}}"
+            data-bar-width="50">
+          </svg>
+            <div
+              ng-controller="TimeRecordsController"
+              class="row-editor"
+              ng-init="init($index); time_record.project_number = project.project_number;">
+              <form
+                name="time_record_form"
+                novalidate
+                ng-submit="timeRecordSubmit(time_record_form.$valid)">
+                <input
+                  type="text"
+                  name="hours"
+                  placeholder="hours" ng-model="time_record.hours">
 
-              <input
-                type="text"
-                name="comment"
-                placeholder="add comment"
-                ng-model="time_record.comments">
+                <input
+                  type="text"
+                  name="comment"
+                  placeholder="comment"
+                  ng-model="time_record.comments">
 
-              <input
-                type="submit"
-                class="button secondary"
-                value="add">
-            </form>
+                <input
+                  type="submit"
+                  class="button secondary"
+                  value="add">
+              </form>
+              <div class="time-log">
+                <div class="row" ng-repeat="time_record in getProjectAssoicatedTimeRecords(project.project_number)">
+                  <div class="small-6 columns">{{time_record.hours}}</div>
+                  <div class="small-6 columns">{{time_record.comments}}</div>
+               </div>
+             </div>
           </div>
         </div>
       </li>
